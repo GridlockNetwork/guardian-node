@@ -12,7 +12,6 @@ Related: [Orch Node](https://github.com/GridlockNetwork/orch-node) | [SDK](https
 Run the official Docker image:
 
 ```
-docker pull gridlocknetwork/guardian-node:latest
 docker run --rm --name guardian-node --network gridlock-net \
   gridlocknetwork/guardian-node:latest
 ```
@@ -30,39 +29,16 @@ To provide your own configuration, mount a `.env` file as shown below.
 
 ## Configuration
 
-By default, the node uses the configuration built into the image from `.env.example`. To customize it, use your own `.env` file.
+By default, the node uses the configuration built into the image from `example.env`. To customize it, use your own `.env` file.
 
 We recommend storing your config at `/Users/USERNAME/.gridlock-guardian-node/.env` (replace `USERNAME` accordingly).
-
-### Using Docker Desktop
-
-1. Open Docker Desktop
-2. Pull the `gridlocknetwork/guardian-node` image
-3. Go to the "Images" tab
-4. Find `gridlocknetwork/guardian-node:latest`
-5. Click "Run"
-6. Under "Volumes", click "Add volume":
-   - **Host path**: `/Users/USERNAME/.gridlock-guardian-node/.env`
-   - **Container path**: `/app/.env`
-7. Click "Run"
 
 ### Using Command Line
 
 ```
-# Run with user config (recommended)
+# Run with custom config
 docker run --rm -v /Users/USERNAME/.gridlock-guardian-node/.env:/app/.env gridlocknetwork/guardian-node:latest
-
-# Run with default config
-docker run --rm gridlocknetwork/guardian-node:latest
 ```
-
----
-
-## Development
-
-If you want to build or modify the guardian node, clone the repo and follow the instructions in the development section.
-
----
 
 ## How It Works
 
@@ -75,9 +51,10 @@ For usage with other tools, check out:
 - [gridlock-sdk](https://github.com/GridlockNetwork/gridlock-sdk)
 - [gridlock-cli](https://github.com/GridlockNetwork/gridlock-cli)
 
----
-
 ## Join the Network
 
-Want to run a node on the public Gridlock network?  
+This code is yours to use — but it’s even better when you’re part of the official Gridlock network.
+
+By running guardian nodes, you can earn rewards while helping secure the network.
+
 Join the community: [gridlock.network/join](https://gridlock.network/join)
