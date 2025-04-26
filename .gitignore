@@ -1,0 +1,12 @@
+.DS_Store
+.idea/
+target/
+.env*
+client/ios/App/ios-libs
+storage/
+!backend/node/src/storage/
+*.log
+node_modules/
+**/*.rs.bk
+**/.DS_Store
+
