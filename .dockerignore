@@ -1,0 +1,16 @@
+# ignore all files
+*
+
+# only include the binaries we copy in
+!target/debug/guardian-node
+!target/release/guardian-node
+
+# include sources we need to build in docker file
+!backend/node/build.rs
+!backend/node/src/
+!backend/server-node/src/
+!backend/shared/src/
+!**/Cargo.toml
+!**/Cargo.lock
+!example.env
+
