@@ -1,3 +1,5 @@
+> 🚀 **Get Started**: Follow our comprehensive guide to set up your Gridlock guardian node and start earning rewards today! [Learn how to run a guardian node →](./running_a_guardian_node.md)
+
 # Gridlock Guardian Node
 
 The guardian node is the heart of the Gridlock network. It stores part of a user's private key and works together with other guardian nodes to approve transactions and recover accounts. This distributed approach removes single points of failure, which is the root cause of most crypto loss.
@@ -28,8 +30,8 @@ For detailed customization options, local development setup, and advanced config
 
 ## Join the Network
 
-This code is yours to use — but it's even better when you're part of the official Gridlock network.
+Running a guardian node gets better when you're part of the official Gridlock network. Run a guardian node and earn rewards while helping others
 
-By running guardian nodes, you can earn rewards while helping secure the network.
+FOLLOW THIS GUIDE to get started earning LOCK.
 
-Join the community: [gridlock.network/join](https://gridlock.network/join)
+Get started learning about the community and LOCK token at [gridlock.network/join](https://gridlock.network/join)
