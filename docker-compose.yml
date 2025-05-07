@@ -20,12 +20,14 @@ services:
   node2:
     <<: *default-node
     container_name: guardian-node-2
+    command: sh -c "sleep 3 && /app/guardian-node"
     volumes:
       - ./storage/nodes/2:/var/lib/gridlock/node
 
   node3:
     <<: *default-node
     container_name: guardian-node-3
+    command: sh -c "sleep 6 && /app/guardian-node"
     volumes:
       - ./storage/nodes/3:/var/lib/gridlock/node
 

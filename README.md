@@ -11,22 +11,20 @@ Related: [Orch Node](https://github.com/GridlockNetwork/orch-node) | [SDK](https
 
 ## Quick Start
 
-The easiest way to see the full setup in action is to use the [Gridlock CLI](https://github.com/GridlockNetwork/gridlock-cli), which can run both the orchestration node and three guardian nodes with a single command.
+### Option 1: Full Setup (Recommended)
 
-Alternatively, you can run the single Docker image:
+Use the [Gridlock CLI](https://github.com/GridlockNetwork/gridlock-cli) to run everything with a single command - orchestration node, guardian nodes, network, and database.
+
+### Option 2: Guardian Node Only
+
+If you already have an orchestration node running, you can run a single guardian node:
 
 ```
 docker run --rm --name guardian-node --network gridlock-net \
   gridlocknetwork/guardian-node:latest
 ```
 
-To run three guardian nodes (useful when running the example in [gridlock-cli](https://github.com/GridlockNetwork/gridlock-cli)), you can use docker compose:
-
-```
-docker compose up
-```
-
-For detailed customization options, local development setup, and advanced configuration, see [Customization and Development Guide](./customization_and_development.md).
+For advanced setups including multiple guardian nodes, see [Customization and Development Guide](./customization_and_development.md).
 
 ## Join the Network
 
