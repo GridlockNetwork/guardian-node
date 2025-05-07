@@ -5,9 +5,22 @@ WORKDIR /app
 
 # Install build dependencies
 RUN apt-get update && \
-    apt-get install -y pkg-config libssl-dev && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y \
+    pkg-config \
+    libssl-dev \
+    autoconf \
+    automake \
+    libtool \
+    make \
+    gcc \
+    g++ \
+    libsodium-dev \
+    libgmp-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set environment variables for libsodium build
+ENV SODIUM_USE_PKG_CONFIG=1
 
 # Copy source code
 COPY . .
@@ -28,7 +41,7 @@ WORKDIR /app
 
 # Install runtime dependencies
 RUN apt-get update && \
-    apt-get install -y ca-certificates libssl-dev && \
+    apt-get install -y ca-certificates libssl-dev libsodium23 libgmp10 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

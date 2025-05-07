@@ -57,6 +57,14 @@ impl App {
             node.e2e_public_key
         );
         info!("-----------------------------------");
+        info!(
+            "{{ \"name\": \"{}\", \"nodeId\": \"{}\", \"networkingPublicKey\": \"{}\", \"e2ePublicKey\": \"{}\" }}",
+            node.name,
+            node.node_id,
+            node.networking_public_key,
+            node.e2e_public_key
+        );
+        info!("-----------------------------------");
         let nc = get_nats_connection()?;
 
         Ok(App { nc, node })

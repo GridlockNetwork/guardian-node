@@ -3,7 +3,7 @@ authors = ["Gridlock Devs <devs@gridlock.network>"]
 build = "build.rs"
 edition = "2021"
 name = "node"
-version = "1.1.4"
+version = "1.1.8"
 license = "GPL-3.0"
 
 [lib]

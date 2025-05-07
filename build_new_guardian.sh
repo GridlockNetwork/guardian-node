@@ -28,8 +28,13 @@ else
     sed -i "s/version = \"$CURRENT_VERSION\"/version = \"$NEW_VERSION\"/" backend/node/Cargo.toml
 fi
 
-# Build Docker image with new version
+# Determine the current platform's architecture
+PLATFORM="linux/$(uname -m | sed 's/x86_64/amd64/' | sed 's/aarch64/arm64/')"
+echo "Building for platform: $PLATFORM"
+
+# Build Docker image with new version for current platform only
 echo "Building gridlocknetwork/guardian-node:$NEW_VERSION"
-docker build -t gridlocknetwork/guardian-node:$NEW_VERSION -t gridlocknetwork/guardian-node:latest .
+docker build --platform $PLATFORM -t gridlocknetwork/guardian-node:$NEW_VERSION -t gridlocknetwork/guardian-node:latest .
 
 echo "Successfully built gridlocknetwork/guardian-node:$NEW_VERSION and gridlocknetwork/guardian-node:latest"
+echo "To build for all platforms, run build_prod_multiarch.sh"

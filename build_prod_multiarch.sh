@@ -10,8 +10,14 @@ set -e
 CURRENT_VERSION=$(grep -m 1 'version = ' backend/node/Cargo.toml | cut -d'"' -f2)
 echo "Building multi-architecture images for version: $CURRENT_VERSION"
 
-# Create and use a new builder instance
-docker buildx create --name guardian-builder --use || true
+# Remove existing builder if it exists
+docker buildx rm guardian-builder || true
+
+# Create and use a new builder instance with proper configuration
+docker buildx create --name guardian-builder --driver docker-container --bootstrap --use
+
+# Set up QEMU for multi-architecture builds
+docker run --privileged --rm tonistiigi/binfmt --install all
 
 # Build and push multi-architecture images
 echo "Building multi-architecture images for gridlocknetwork/guardian-node:$CURRENT_VERSION"
