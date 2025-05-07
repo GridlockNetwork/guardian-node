@@ -34,7 +34,6 @@ RUN apt-get update && \
 
 # Copy the built binary
 COPY --from=builder /app/target/release/guardian-node /app/guardian-node
-COPY example.env /app/example.env
 
 # Create directories
 RUN mkdir -p /var/lib/gridlock/node
@@ -44,9 +43,10 @@ RUN echo '#!/bin/sh' > /app/start.sh && \
     echo 'if [ -f "/app/.env" ]; then' >> /app/start.sh && \
     echo '  echo "Using mounted .env configuration"' >> /app/start.sh && \
     echo 'else' >> /app/start.sh && \
-    echo '  echo "No config mounted. Using example config."' >> /app/start.sh && \
-    echo '  echo "For custom config, mount your .env file: docker run -v /path/to/.env:/app/.env ..."' >> /app/start.sh && \
-    echo '  cp /app/example.env /app/.env' >> /app/start.sh && \
+    echo '  echo "ERROR: No config mounted. Please mount your .env file:"' >> /app/start.sh && \
+    echo '  echo "docker run -v /path/to/.env:/app/.env ..."' >> /app/start.sh && \
+    echo '  echo "or when using docker-compose, ensure volumes section includes .env mapping"' >> /app/start.sh && \
+    echo '  exit 1' >> /app/start.sh && \
     echo 'fi' >> /app/start.sh && \
     echo 'exec "$@"' >> /app/start.sh && \
     chmod +x /app/start.sh

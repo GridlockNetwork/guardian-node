@@ -2,10 +2,12 @@ x-default-node: &default-node
   restart: always
   image: gridlocknetwork/guardian-node:latest
   volumes:
-    # Mount the .env file if it exists, otherwise the default will be used
+    # Mount the .env file for configuration
     - ./.env:/app/.env:ro
     - ./storage:/app/storage
     - ./node.db:/var/lib/gridlock/node/node.db
+  env_file:
+    - ./.env
   networks:
     - gridlock-net
 
@@ -15,6 +17,7 @@ services:
     <<: *default-node
     container_name: guardian-node-1
     volumes:
+      - ./.env:/app/.env:ro
       - ./storage/nodes/1:/var/lib/gridlock/node
 
   node2:
@@ -22,6 +25,7 @@ services:
     container_name: guardian-node-2
     command: sh -c "sleep 3 && /app/guardian-node"
     volumes:
+      - ./.env:/app/.env:ro
       - ./storage/nodes/2:/var/lib/gridlock/node
 
   node3:
@@ -29,6 +33,7 @@ services:
     container_name: guardian-node-3
     command: sh -c "sleep 6 && /app/guardian-node"
     volumes:
+      - ./.env:/app/.env:ro
       - ./storage/nodes/3:/var/lib/gridlock/node
 
 networks:

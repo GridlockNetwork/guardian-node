@@ -50,7 +50,7 @@ impl App {
         info!("E2E Public Key: \x1b[34m\x1b[1m{}\x1b[0m", &node.e2e_public_key);
         info!("-----------------------------------");
         info!(
-            "{{\"name\":\"{}\",\"nodeId\":\"{}\",\"networkingPublicKey\":\"{}\",\"e2ePublicKey\":\"{}\"}}",
+            "\n{{\n  \"name\": \"{}\",\n  \"nodeId\": \"{}\",\n  \"networkingPublicKey\": \"{}\",\n  \"e2ePublicKey\": \"{}\"\n}}",
             node.name,
             node.node_id,
             node.networking_public_key,
